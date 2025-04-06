@@ -1,0 +1,132 @@
+.home {
+    padding-top: 40px; /* Adjust for the fixed navbar */
+  }
+  
+  .content {
+    padding: 20px;
+    background-color: #e9e8e8;
+  }
+  
+  .timer {
+    width: 100%; /* Make the timer take full width inside the card */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .timer button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f3cf57;
+    cursor: pointer;
+  }
+  
+  .timer button:hover {
+    background-color: #e5b62e;
+  }
+  
+  .additional-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Create 2 columns */
+    grid-gap: 20px; /* Add space between the cards */
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    
+  }
+  
+  .card {
+    background-color: #f3cf57;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the content inside the card */
+    height: 180px; /* Set a fixed height for all cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space between elements */
+    align-items: center;
+  }
+  
+  .card-icon {
+    font-size: 80px; /* Adjust the size as needed */
+    color: #28414b; /* Adjust the color as needed */
+    margin-bottom: 10px; 
+    padding-right: 50px;
+    padding-top: 20px;
+    background-color: #f3cf57;/* Add margin to separate the icon from the text */
+  }
+  
+  .card h3 {
+    font-size: 1rem;
+    color: #b6b5b2;
+    background-color: white; /* Background color for h3 */
+    padding: 10px;
+    width: 100%;
+    margin-top: auto; /* Push the heading to the bottom */
+    margin-bottom: 0; /* Remove bottom margin */
+    border-radius: 5px;
+  }
+  
+  .motivation {
+    margin-bottom: 20px;
+    background-color: #28414b; /* Add background color */
+    padding: 20px;
+    border-radius: 5px;
+    color: white; /* Change text color */
+  }
+  
+  .motivation-title {
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: #b6b5b2; /* Change text color */
+  }
+  
+  .motivation-text {
+    font-size: 1.2rem;
+  }
+  
+  .tracker-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  
+  .tracker-details {
+    width: 100%; /* Make the tracker details take full width inside the card */
+    margin-bottom: 20px;
+  }
+  
+  .study-tracker-title {
+    margin-bottom: 20px;
+    padding: auto;
+    color: #b6b5b2;
+    text-align: left;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-group input {
+    flex: 1;
+    padding: 8px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px;
+  }

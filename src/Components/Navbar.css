@@ -1,0 +1,75 @@
+.navbar {
+  background: #f3cf57;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  /* Use flexbox to align items in a row */
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  max-width: 1500px;
+  padding: 0 20px;
+  position: relative;
+  /* Ensure the back button is positioned correctly */
+}
+
+.back-button {
+  background: none;
+  color: #28414b;
+  cursor: pointer;
+  border-radius: 0%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  right: auto;
+  height: 5px;
+  width: 5px;
+  margin-bottom: 30px;
+  /* Position the back button in the left corner */
+}
+
+.menu-button {
+  background: none;
+  color: #28414b;
+  cursor: pointer;
+  border-radius: 0%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  right: auto;
+  height: 5px;
+  width: 5px;
+  margin-right: 20px;
+  /* Position the menu button in the right corner */
+}
+
+.back-button:hover {
+  color: #e5b62e;
+  /* Change color on hover */
+}
+
+.menu-button:hover {
+  color: white;
+  /* Change color on hover */
+}
+
+.navbar-title {
+  color: #28414b;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto;
+  /* Center the title */
+  text-align: center;
+  flex-grow: 1;
+  /* Ensure the title takes up the remaining space */
+}
