@@ -1,0 +1,100 @@
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #28414b;
+  text-align: center;
+}
+
+.errmsg {
+  color: red;
+  background-color: #fdd;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid red;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.successmsg {
+  color: green;
+  background-color: #dfd;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid green;
+  border-radius: 5px;
+  text-align: center;
+}
+
+form.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the form content horizontally */
+  justify-content: center; /* Center the form content vertically */
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(56, 56, 56, 0.1); /* Add a subtle shadow */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 100%; /* Ensure labels span the full width */
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f3cf57;
+  color: #28414b;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #f5c62e;
+}
+
+.auth-link {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.auth-link a {
+  color: #28414b;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}

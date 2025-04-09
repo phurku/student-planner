@@ -1,0 +1,75 @@
+/* Navbar container styling */
+.navbar {
+  background: #f3cf57; /* Navbar background color */
+  height: 60px; /* Navbar height */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out left and right sections */
+  align-items: center; /* Vertically center items */
+  font-size: 1.2rem; /* Font size for navbar items */
+  position: fixed; /* Fix navbar at the top */
+  top: 0;
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure navbar is above other elements */
+  padding: 0 20px; /* Add padding to the left and right */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+}
+
+/* Left section of the navbar */
+.navbar-left {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically center items */
+  justify-content: flex-start; /* Align items to the left */
+  flex: 0 0 auto; /* Prevent the left section from stretching */
+}
+
+/* Center section of the navbar (title) */
+.navbar-title {
+  font-weight: bold; /* Make the title bold */
+  font-size: 1.5rem; /* Optional: Increase the font size */
+  color: #333; /* Text color */
+  position: absolute; /* Position the title absolutely */
+  left: 50%; /* Move the title to the center horizontally */
+  transform: translateX(-50%); /* Adjust for the title's width */
+  text-align: center; /* Center the text */
+}
+
+/* Right section of the navbar */
+.navbar-right {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically center items */
+  justify-content: flex-end; /* Align items to the right */
+  flex: 0 0 auto; /* Prevent the right section from stretching */
+}
+
+/* Back button styling */
+.back-button {
+  background: none; /* Remove default button background */
+  border: none; /* Remove default button border */
+  font-size: 1.2rem; /* Set font size */
+  cursor: pointer; /* Change cursor to pointer */
+  color: #333; /* Set text color */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for back button */
+.back-button:hover {
+  color: #007bff; /* Change color on hover */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+/* Menu button styling */
+.menu-button {
+  color: #333; /* Set text color */
+  font-size: 1.5rem; /* Set font size */
+  cursor: pointer; /* Change cursor to pointer */
+  background: none; /* Remove default background */
+  border: none; /* Remove default border */
+  padding: 0; /* Remove extra padding */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for menu button */
+.menu-button:hover {
+  color: #007bff; /* Change color on hover */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
