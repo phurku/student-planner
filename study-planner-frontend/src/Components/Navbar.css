@@ -53,7 +53,7 @@
 
 /* Hover effect for back button */
 .back-button:hover {
-  color: #007bff; /* Change color on hover */
+  color: #e7bd32; /* Change color on hover */
   transform: scale(1.1); /* Slightly enlarge the button on hover */
 }
 
@@ -70,6 +70,6 @@
 
 /* Hover effect for menu button */
 .menu-button:hover {
-  color: #007bff; /* Change color on hover */
+  color: #e7bd32; /* Change color on hover */
   transform: scale(1.1); /* Slightly enlarge the button on hover */
 }

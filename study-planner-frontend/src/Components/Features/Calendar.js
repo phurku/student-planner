@@ -32,47 +32,7 @@ function CalendarComponent() {
     return (
         <div className="calendar-container">
             <Navbar title="Calendar" />
-            <div className="calendar-navigation">
-
-                <span>{date.toLocaleDateString('default', { month: 'long', year: 'numeric' })}</span>
-
-            </div>
-            <Calendar
-                onChange={onChange}
-                value={date}
-                view="month"
-                nextLabel={null}
-                prevLabel={null}
-                next2Label={null}
-                prev2Label={null}
-            />
-            <div className="selected-date">
-                <p>Selected Date: {date.toDateString()}</p>
-            </div>
-            <div className="add-event">
-                <input
-                    type="text"
-                    placeholder="Event Name"
-                    value={eventName}
-                    onChange={(e) => setEventName(e.target.value)}
-                />
-                <input
-                    type="time"
-                    value={eventTime}
-                    onChange={(e) => setEventTime(e.target.value)}
-                />
-                <button onClick={handleAddEvent}>Add Event</button>
-            </div>
-            <div className="event-list">
-                <h3>Events</h3>
-                <ul>
-                    {events.map((event, index) => (
-                        <li key={index}>
-                            <strong>{event.date}</strong> - {event.time} - {event.name}
-                        </li>
-                    ))}
-                </ul>
-            </div>
+           
             <BottomNavBar />
         </div>
     );

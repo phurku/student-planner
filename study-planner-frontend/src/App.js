@@ -9,7 +9,7 @@ import CalendarComponent from './Components/Features/Calendar';
 import AddTask from './Components/Features/AddTask'; // Import AddTask component
 import Statistics from './Components/Features/Statistics'; // Import Statistics component
 import './App.css';
-
+import UserProfile from './Components/userProfile';
 function App() {
   return (
     <Router>
@@ -25,6 +25,8 @@ function App() {
           <Route path="/add-task" element={<AddTask />} /> {/* Add AddTask route */}
           <Route path="/statistics" element={<Statistics />} /> {/* Add Statistics route */}
           <Route path="/" element={<Navigate to="/signin" />} /> {/* Redirect to SignIn on load */}
+          <Route path="/profile" element={<UserProfile />} />
+
         </Routes>
       </div>
     </Router>

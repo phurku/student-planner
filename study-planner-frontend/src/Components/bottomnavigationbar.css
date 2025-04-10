@@ -1,28 +1,42 @@
+/* Bottom navigation bar container */
 .bottom-nav-bar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-  }
-  
-  .bottom-nav-bar button {
-    background: none;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .bottom-nav-bar button:hover {
-    color: #007bff;
-  }
-  
-  .bottom-nav-bar button span {
-    font-size: 0.8rem;
-  }
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Buttons inside the bottom navigation bar */
+.bottom-nav-bar button {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.bottom-nav-bar button:hover {
+  color: #007bff;
+}
+
+/* Icon styling */
+.bottom-nav-bar button svg {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+/* Text below the icons */
+.bottom-nav-bar button span {
+  font-size: 0.8rem;
+}

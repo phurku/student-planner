@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faCalendarAlt, faTasks, faChartBar } from '@fortawesome/free-solid-svg-icons';
+import { faTasks, faCalendarAlt, faClipboardList, faChartBar } from '@fortawesome/free-solid-svg-icons';
 import './bottomnavigationbar.css';
 
 function BottomNavBar() {
@@ -9,17 +9,17 @@ function BottomNavBar() {
 
   return (
     <div className="bottom-nav-bar">
-      <button onClick={() => navigate('/home')}>
-        <FontAwesomeIcon icon={faHome} />
-        <span>Home</span>
-      </button>
-      <button onClick={() => navigate('/calendar')}>
-        <FontAwesomeIcon icon={faCalendarAlt} />
-        <span>Calendar</span>
-      </button>
       <button onClick={() => navigate('/add-task')}>
         <FontAwesomeIcon icon={faTasks} />
         <span>Add Task</span>
+      </button>
+      <button onClick={() => navigate('/schedule')}>
+        <FontAwesomeIcon icon={faCalendarAlt} />
+        <span>Schedule</span>
+      </button>
+      <button onClick={() => navigate('/planner')}>
+        <FontAwesomeIcon icon={faClipboardList} />
+        <span>Planner</span>
       </button>
       <button onClick={() => navigate('/statistics')}>
         <FontAwesomeIcon icon={faChartBar} />
