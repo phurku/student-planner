@@ -17,7 +17,9 @@ import { onMessageListener } from './Components/Firebase/Firebase'; // Import Fi
 import Notifications from './Components/Features/Notifications'; // Import Notifications component
 import Feedback from './Components/Profile/Feedback'; // Import Feedback component
 import { AuthProvider } from './Components/Context/AuthContext'; // Import AuthProvider
+import useClockFavicon from './hooks/useClockFavicon';
 function App() {
+  useClockFavicon();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
 

@@ -1,12 +1,13 @@
 ﻿.clock {
   width: 150px;
   height: 150px;
-  border: 3px solid black;
+  border: 5px solid #2f80a3;
   border-radius: 50%;
   position: relative;
   margin: 50px auto;
-  background: linear-gradient(to right, #14303a 50%, #205a73 50%);
-  display: flex; /* Use flexbox to center the clock face */
+  background: #ffffff;
+  box-shadow: 0 0 0 6px #d7eaf1, 0 8px 24px rgba(47,128,163,0.20);
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -19,26 +20,26 @@
   width: 210px;
   height: 210px;
   border-radius: 50%;
-  background: linear-gradient(to right, #14303a 50%, #205a73 50%);
+  background: transparent;
   z-index: -1;
 }
 
 .clock-face {
-  width: 90%; /* Adjust size to fit within the clock */
+  width: 90%;
   height: 90%;
   position: relative;
-  display: flex; /* Use flexbox to center the hands */
+  display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(0); /* Remove unnecessary offset */
+  transform: translateY(0);
   border-radius: 50%;
-  background: linear-gradient(to right, #14303a 50%, #205a73 50%);
+  background: #f4f8fb;
 }
 
 .hand {
   width: 50%;
   height: 6px;
-  background: black;
+  background: #1f5f78;
   position: absolute;
   top: 50%;
   right: 50%;
@@ -51,8 +52,8 @@
 
 .hour-hand {
   height: 8px;
-width: 33%;
-  background: black;
+  width: 33%;
+  background: #14303a;
   border-radius: 4px;
   transform: rotate(90deg);
   transition: all 0.05s;
@@ -65,7 +66,7 @@ width: 33%;
 .minute-hand {
   height: 4px;
   width: 40%;
-  background: black;
+  background: #2f80a3;
   border-radius: 2px;
   transform: rotate(90deg);
   transition: all 0.05s;
@@ -77,7 +78,7 @@ width: 33%;
 .second-hand {
   height: 2px;
   width: 45%;
-  background: black;
+  background: #e05252;
   z-index: 3;
   border-radius: 1px;
   transform: rotate(90deg);
@@ -90,8 +91,9 @@ width: 33%;
   width: 20px;
   height: 20px;
   text-align: center;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 700;
+  color: #2f5260;
   transform: translate(-50%, -50%);
 }
 

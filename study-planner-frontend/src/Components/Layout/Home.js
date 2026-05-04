@@ -78,7 +78,6 @@ function Home() {
                 <section className="h-hero">
                     <div className="h-hero-text">
                         <span className="h-badge">
-                            <FontAwesomeIcon icon={faStar} className="h-badge-icon" />
                             Your Study Dashboard
                         </span>
                         <h1 className="h-hero-title">
