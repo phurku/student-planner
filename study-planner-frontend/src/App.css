@@ -1,0 +1,92 @@
+﻿.auth-container {
+  display: flex;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: 100vh; /* Full viewport height */
+  padding: 0px;
+}
+
+.errmsg {
+  color: red;
+  background-color: #ffe8e4;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid red;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.successmsg {
+  color: green;
+  background-color: #e6f7ef;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid green;
+  border-radius: 5px;
+  text-align: center;
+}
+
+form.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the form content horizontally */
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #c7d7dc;
+  border-radius: 5px;
+  background-color: #f5f8ff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 100%; /* Ensure labels span the full width */
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #c7d7dc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2f80a3;
+  color: #14303a;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #266c89;
+}
+
+.auth-link {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.auth-link a {
+  color: #14303a;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+

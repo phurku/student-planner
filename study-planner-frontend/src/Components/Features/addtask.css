@@ -1,0 +1,234 @@
+﻿/* Add Task Page Body */
+.add-task-body {
+  padding-top: 60px;
+  padding-bottom: 60px;  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f8ff;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Add Task Container */
+.add-task-container {
+  display: flex;
+  flex-direction: column;
+  
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.auth-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh; /* Adjust height to center vertically */
+  text-align: center;
+    color: #14303a;
+
+}
+
+.auth-prompt p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.auth-button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #266c89;
+  color: #14303a;
+  width: auto;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #205a73
+}
+.progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #4aa286;
+  width: 0; /* Dynamically set via inline style */
+  transition: width 0.3s ease-in-out;
+}
+/* Form Labels and Inputs in the Same Row */
+.add-task-container label {
+  display: flex;
+  /* Use flexbox for layout */
+  flex-direction: column;
+  /* Stack label and input vertically */
+  align-items: flex-start;
+  /* Align items to the left */
+  margin-bottom: 15px;
+  /* Add spacing between rows */
+  font-size: 14px;
+  /* Font size for labels */
+  color: #243f4a;
+  /* Darker text color */
+  width: 100%;
+  /* Full width of the container */
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #c7d7dc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+form textarea {
+  resize: vertical;
+  /* Allow vertical resizing */
+}
+
+/* Checkbox */
+form input[type="checkbox"] {
+  width: auto;
+  margin-top: 5px;
+}
+
+/* Schedule Fields */
+.schedule-fields {
+  display: flex;
+  flex-direction: column;
+  /* Stack schedule fields vertically */
+  gap: 10px;
+  /* Add spacing between fields */
+  margin-bottom: 15px;
+  /* Add spacing between schedules */
+  width: 100%;
+  /* Full width of the container */
+}
+
+/* Submit Button */
+form button {
+  background-color: #2f80a3;
+  /* Yellow background */
+  color: white;
+  /* White text color */
+  padding: 10px 15px;
+  /* Add padding for better click area */
+  border: none;
+  /* Remove border */
+  border-radius: 4px;
+  /* Rounded corners */
+  font-size: 16px;
+  /* Font size */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  transition: background-color 0.3s ease;
+  /* Smooth hover effect */
+  width: 100%;
+  /* Full width of the button */
+}
+
+form button:hover {
+  background-color: #266c89;
+  /* Darker yellow on hover */
+}
+
+/* Message Display */
+.message {
+  color: green;
+  /* Green text for success messages */
+  font-size: 14px;
+  /* Font size for messages */
+  margin-bottom: 15px;
+  /* Add spacing below the message */
+  text-align: center;
+  /* Center the message */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .add-task-container {
+    padding: 15px;
+    /* Reduce padding for smaller screens */
+  }
+
+  form button {
+    font-size: 14px;
+    /* Reduce button font size for smaller screens */
+  }
+}
+
+form label {
+  font-size: 14px;
+}
+
+form input,
+form textarea,
+form select {
+  font-size: 14px;
+  padding: 8px;
+}
+
+form button {
+  font-size: 14px;
+  padding: 8px;
+}
+
+.schedule-fields {
+  flex-direction: column;
+}
+
+/* Popup styles */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content p {
+  margin-bottom: 20px;
+}
+
+.popup-content button {
+  padding: 10px 20px;
+  background-color: #2f80a3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 20%;
+  cursor: pointer;
+}
+
+.popup-content button:hover {
+  background-color: #205a73;
+}
+

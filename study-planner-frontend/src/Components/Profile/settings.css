@@ -1,0 +1,184 @@
+﻿/* Main container for the settings page */
+.settings-page {
+  display: flex;
+
+  /* Use flexbox for layout */
+  flex-direction: column;
+  /* Stack children vertically */
+  align-items: flex-start;
+  /* Align items to the left */
+  justify-content: flex-start;
+  /* Align items to the top */
+  padding: 20px;
+  width: 100%;
+  /* Take full width of the parent */
+  max-width: 800px;
+  /* Optional: Limit the maximum width */
+  margin-top: 90px;
+  /* Space from the top */
+  background-color: none;
+  /* Light background color */
+}
+
+/* Settings container */
+.settings-container {
+
+  display: flex;
+  /* Use flexbox for layout */
+  flex-direction: column;
+  /* Stack children vertically */
+  align-items: flex-start;
+  /* Align items to the left */
+  justify-content: flex-start;
+  /* Align items to the top */
+  width: 100%;
+  /* Take full width of the parent */
+  max-width: 800px;
+  /* Optional: Limit the maximum width */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  overflow-y: auto;
+  /* Add scroll if content overflows */
+}
+
+.account-header-setting {
+  width: 100%;
+  /* Take full width of the container */
+}
+
+/* User profile section */
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+  /* Center align items */
+}
+
+.user-details {
+  font-size: 1rem;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  /* Center align items */
+  color: #14303a;
+}
+
+.user-profile-img {
+  color: red;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* Make the image circular */
+  margin-right: 10px;
+  /* Space between image and text */
+}
+
+/* Placeholder for when the user is not signed in */
+.user-profile-placeholder {
+
+  font-size: 1rem;
+  color: #4f6570;
+  text-align: left;
+  /* Align text to the left */
+  margin-bottom: 20px;
+}
+
+/* Settings options list */
+.settings-options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; 
+  color: #14303a;
+}
+
+
+.settings-options li {
+  display:flex;
+  max-width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  padding: 10px 20px; /* Increase padding for a larger hover area */
+  margin: 5px 0; /* Add spacing between list items */
+  background-color: transparent; /* Default background color */
+  text-align: left; /* Align text to the left */
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+
+.settings-options li:first-child {
+  border-top:#0f2730 1px solid;
+  padding-top: 15px;
+
+
+
+}
+
+/* Hover effect for settings options */
+.settings-options li:hover {
+  transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--hover-text-color);
+
+  color: #0f2730;
+  font-weight: bold;
+
+}
+
+/* Theme Selection Styles */
+.theme-selection {
+  display: flex;
+  /* Use flexbox for layout */
+  flex-direction: row;
+  /* Align items in a row */
+  align-items: center;
+  /* Center align items */
+  justify-content: flex-start;
+  
+  width: 50%;
+}
+
+.theme-selection label {
+  font-size: 1rem;
+}
+
+.theme-selection select {
+  padding: 5px;
+  font-size: 1rem;
+  color: #14303a;
+  width: 40%;
+  /* Take full width of the container */
+
+}
+.usermanual{
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; 
+  color: #14303a;
+}
+.usermanual:hover{
+  text-decoration: none;
+}
+
+.auth-buttons {
+  padding: 10px 20px;
+  width: 100%;
+  align-items: center;
+  background-color: transparent;
+  color: #14303a;
+
+}
+
+.auth-buttons:hover {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  color: #0f2730;
+  /* Darker blue on hover */
+}

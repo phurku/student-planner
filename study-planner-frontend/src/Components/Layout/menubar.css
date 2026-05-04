@@ -1,0 +1,125 @@
+﻿/* Drawer styles */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  /* Set the width of the drawer */
+  height: 100%;
+  /* Full height */
+  background-color: #ffffff;
+  /* White background for visibility */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow for separation */
+  transform: translateX(100%);
+  /* Initially hidden off-screen */
+  transition: transform 0.3s ease;
+  /* Smooth slide-in effect */
+  z-index: 1000;
+  /* Ensure it appears above other elements */
+}
+
+.drawer.open {
+  transform: translateX(0);
+  /* Slide the drawer into view */
+}
+
+.drawer-content {
+  justify-content: flex-start;
+  /* Align content to the top */
+  /* Add padding for content spacing */
+  box-sizing: border-box;
+  height: 100%;
+  /* Ensure it takes full height */
+}
+
+.close-drawer {
+  background: none;
+  padding: 5px;
+  /* Add padding for better click area */
+  border-radius: 5px;
+  /* Rounded corners */
+  border: none;
+  color: #14303a;
+  /* Darker text color */
+  cursor: pointer;
+  font-weight: bold;
+  padding-right: 250px;
+
+  margin-bottom: 20px;
+  /* Add spacing below the back button */
+}
+
+.close-drawer:hover {
+  transform: scale(1.05);
+  color: #0f2730;
+  /* Darker blue on hover */
+  background: none;
+  border: none;
+}
+
+.account-header-menubar {
+  background-color: #edf4f5;
+  height: 100px;
+  align-items: center;
+  border-radius: 5%;
+  /* Add spacing below the account header */
+}
+
+.user-profile {
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+
+
+
+.menu-items {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.menu-items li {
+  padding: 10px 0;
+  cursor: pointer;
+  color: #14303a;
+  /* Blue text for menu items */
+  transition: color 0.3s ease;
+}
+.menu-items li:hover{
+  transition: background-color 0.3s ease;
+  color: #0f2730;
+  /* Darker blue on hover */
+  font-weight: bold;
+}
+
+.menu-items li:hover {
+  color: #0f2730;
+  /* Darker blue on hover */
+}
+
+
+.auth-buttons .login-option,
+.auth-buttons .logout-option {
+  display: inline-block;
+  font-size: 16px;
+  color: #14303a;
+  border-radius: 5px;
+  background-color:transparent;
+  color: none;
+  cursor: pointer;
+  align-items: center;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.auth-buttons .login-option:hover,
+.auth-buttons .logout-option:hover {
+  transform: scale(1.05);
+  font-weight: bold;
+
+  /* Slightly enlarge on hover */
+}

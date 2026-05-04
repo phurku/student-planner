@@ -1,0 +1,13 @@
+venv
+pgdata
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+celerybeat*
+secrets
+redis-data
+node_modules

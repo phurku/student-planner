@@ -1,0 +1,286 @@
+﻿/* Theme colors aligned with app pages */
+:root {
+  --nav-bg: #e8f2f4;
+  --nav-text: #14303a;
+  --nav-text-soft: #2f5260;
+  --nav-border: rgba(20, 48, 58, 0.12);
+  --nav-hover: rgba(20, 48, 58, 0.08);
+}
+
+/* General Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: 0 4px 12px rgba(20, 48, 58, 0.08);
+  transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+/* Navbar Title */
+.navbar-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--nav-text);
+}
+
+/* Navbar Content */
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: display 0.3s ease;
+  /* Smooth transition for display */
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  gap: 15px;
+  padding-right: 20px;
+ 
+}
+.notification-container:hover {
+  background-color: transparent;
+  background-color: none;
+}
+
+.nav-link {
+  color: var(--nav-text);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  transform: scale(1.1);
+  background-color: var(--nav-hover);
+  text-decoration: none;
+
+}
+
+/* Hamburger Menu Button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--nav-text);
+  height: fit-content;
+  font-weight: bold;
+
+}
+
+.menu-toggle:hover {
+  /* Change color on hover */
+  background-color: transparent;
+  color: var(--nav-text);
+  transform: scale(1.1);
+}
+
+/* Notification Icon and Badge */
+.notification-container {
+  position: relative;
+  /* Ensure the badge is positioned relative to the icon */
+  display: inline-block;
+  /* Keep the icon and badge together */
+}
+
+/* Dropdown Menu Container */
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  /* Position below the notification icon */
+  right: 0;
+  /* Align to the right of the notification icon */
+  background-color: white;
+  border: 1px solid var(--nav-border);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  /* Set a fixed width for the dropdown */
+  z-index: 2000;
+  /* Ensure it appears above other elements */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dropdown Menu Header */
+.dropdown-menu h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: var(--nav-text);
+  font-weight: bold;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 5px;
+}
+
+/* Dropdown Menu Items */
+.notification-item {
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  color: var(--nav-text-soft);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+  /* Remove border for the last item */
+}
+
+.notification-item:hover {
+  background-color: #f4f8f9;
+  /* Highlight on hover */
+}
+
+/* Empty State Message */
+.dropdown-menu p {
+  font-size: 14px;
+  color: #6a808a;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Scrollable Dropdown (if there are many items) */
+.dropdown-menu {
+  max-height: 300px;
+  /* Limit the height of the dropdown */
+  overflow-y: auto;
+  /* Add vertical scroll if content exceeds max height */
+}
+
+/* Scrollbar Styling */
+.dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: #c7d7dc;
+  border-radius: 3px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  /* Adjust to align with the top of the icon */
+  right: -5px;
+  /* Adjust to align with the right of the icon */
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  min-width: 12px;
+  /* Ensure the badge is circular */
+  text-align: center;
+}
+
+.menu-button{
+  color: var(--nav-text);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.menu-button:hover {
+  background-color: var(--nav-hover);
+  border-radius: 8px;
+  transform: scale(1.05);
+  /* Slightly enlarge on hover */
+}
+
+.dropdown-button,
+.icon-button {
+  color: var(--nav-text);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.dropdown-button:hover,
+.icon-button:hover {
+  background: var(--nav-hover);
+}
+/* Responsive Design for Mobile */
+
+@media (max-width: 768px) {
+  .navbar{
+    height: auto;
+    /* Keep navbar height consistent */
+    background-color: var(--nav-bg);
+    /* Maintain background color */
+  }
+  .menu-toggle {
+    display: block;
+
+    /* Show hamburger menu button */
+  }
+
+  .navbar-content {
+    display: none;
+    /* Hide navbar content by default */
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--nav-bg);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-content.open {
+    display: flex;
+    /* Show navbar content when open */
+  }
+
+  .navbar-left,
+  .navbar-right {
+    flex-direction: column;
+    gap: 10px;
+    width: 15%;
+
+  }
+  .navbar-right, .navbar-left:hover {
+background-color: transparent;
+    
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: left;
+  }
+  .content {
+    margin-top: calc(600px + 10px); /* Adjust margin to account for expanded navbar */
+    transition: margin-top 0.3s ease; /* Smooth transition for margin changes */
+  }
+}

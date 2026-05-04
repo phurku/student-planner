@@ -1,0 +1,301 @@
+﻿/* General Page Styling */
+.planner-page {
+  font-family: Arial, sans-serif;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+  background-color: #f5f8ff;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #2f80a3;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* View Toggle Buttons */
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.view-toggle button {
+  background-color: #2f80a3;
+  color: #14303a;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.view-toggle button.active {
+  background-color: #2f80a3;
+
+}
+
+
+/* Task List Styling */
+.task-list {
+
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.task-card {
+  background-color: white;
+  border: 1px solid #c7d7dc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h3 {
+  margin: 0 0 10px;
+  color: #243f4a;
+}
+
+.task-card p {
+  margin: 5px 0;
+  color: #4a606b;
+}
+
+.task-card strong {
+  color: #243f4a;
+}
+
+/* Task Actions Buttons */
+.task-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.auth-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  /* Adjust height to center vertically */
+  text-align: center;
+}
+.completed-task {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.task-card button:disabled {
+  background-color: #c7d7dc;
+  cursor: not-allowed;
+}
+.overdue-task {
+  color: red;
+  font-weight: bold;
+}
+
+.overdue-label {
+  color: red;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+.auth-prompt p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.auth-button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #266c89;
+  color: #14303a;
+  width: auto;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #205a73
+}
+
+.task-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.start-timer-button {
+  background-color: #4aa286;
+  color: white;
+}
+
+.start-timer-button:hover {
+  background-color: #3f9a7f;
+}
+
+.start-timer-button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+.stop-timer-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.stop-timer-button:hover {
+  background-color: #e53935;
+}
+
+.stop-timer-button:disabled {
+  background-color: #ef9a9a;
+  cursor: not-allowed;
+}
+
+.update-button {
+  background-color: #2c9cb0;
+  color: white;
+}
+
+.update-button:hover {
+  background-color: #278ea0;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #e53935;
+}
+
+/* Calendar View Styling */
+.calendar-view {
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid #c7d7dc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown Styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #c7d7dc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: #243f4a;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #e7eff1;
+}
+
+/* Bottom Navigation Styling */
+.bottom-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #4aa286;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.bottom-navigation a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.bottom-navigation a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile View: Adjust Task List Layout */
+@media (max-width: 768px) {
+  .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Add spacing between tasks */
+    padding: 10px;
+  }
+
+  .task-card {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid #c7d7dc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .task-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .task-card p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .task-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Add spacing between buttons */
+  }
+
+  .task-actions button {
+    width: 100%;
+    /* Make buttons full-width */
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+

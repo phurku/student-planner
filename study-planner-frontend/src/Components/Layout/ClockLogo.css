@@ -1,0 +1,110 @@
+﻿.clock {
+  width: 150px;
+  height: 150px;
+  border: 3px solid black;
+  border-radius: 50%;
+  position: relative;
+  margin: 50px auto;
+  background: linear-gradient(to right, #14303a 50%, #205a73 50%);
+  display: flex; /* Use flexbox to center the clock face */
+  justify-content: center;
+  align-items: center;
+}
+
+.clock::before {
+  content: '';
+  position: absolute;
+  top: -28px;
+  left: -30px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #14303a 50%, #205a73 50%);
+  z-index: -1;
+}
+
+.clock-face {
+  width: 90%; /* Adjust size to fit within the clock */
+  height: 90%;
+  position: relative;
+  display: flex; /* Use flexbox to center the hands */
+  justify-content: center;
+  align-items: center;
+  transform: translateY(0); /* Remove unnecessary offset */
+  border-radius: 50%;
+  background: linear-gradient(to right, #14303a 50%, #205a73 50%);
+}
+
+.hand {
+  width: 50%;
+  height: 6px;
+  background: black;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -100%);
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hour-hand {
+  height: 8px;
+width: 33%;
+  background: black;
+  border-radius: 4px;
+  transform: rotate(90deg);
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  z-index: 3;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.minute-hand {
+  height: 4px;
+  width: 40%;
+  background: black;
+  border-radius: 2px;
+  transform: rotate(90deg);
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  z-index: 2;
+  border-radius: 2px;
+}
+
+.second-hand {
+  height: 2px;
+  width: 45%;
+  background: black;
+  z-index: 3;
+  border-radius: 1px;
+  transform: rotate(90deg);
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.number {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+}
+
+.number1 { top: 20%; left: 75%; }
+.number2 { top: 35%; left: 88%; }
+.number3 { top: 50%; left: 90%; }
+.number4 { top: 65%; left: 88%; }
+.number5 { top: 80%; left: 75%; }
+.number6 { top: 85%; left: 50%; }
+.number7 { top: 80%; left: 25%; }
+.number8 { top: 65%; left: 12%; }
+.number9 { top: 50%; left: 10%; }
+.number10 { top: 35%; left: 12%; }
+.number11 { top: 20%; left: 25%; }
+.number12 { top: 15%; left: 50%; }
+

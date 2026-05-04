@@ -1,0 +1,115 @@
+﻿/* statistics.css */
+.statistics-page {
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f5f8ff;
+  padding: 20px;
+}
+
+.statistics-container {
+
+  text-align: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  width: 100%;
+}
+
+.statistics-title {
+  font-size: 2rem;
+  color: #243f4a;
+  margin-bottom: 20px;
+}
+
+.statistics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Two columns */
+  grid-template-rows: auto auto;
+  /* Adjust rows automatically */
+  gap: 20px;
+  /* Space between items */
+  margin-top: 20px;
+
+}
+
+.chart-container {
+
+  background: #edf4f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+  grid-column: span 2;
+  /* Make the table span across both columns */
+  background: #edf4f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chart-title {
+  font-size: 1.5rem;
+  color: #14303a;
+  margin-bottom: 10px;
+  color: var(--text-color);
+
+}
+
+.statistics-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.statistics-table th,
+.statistics-table td {
+  border: 1px solid #c7d7dc;
+  color: var(--text-color);
+
+  padding: 10px;
+  color: #14303a;
+
+  text-align: center;
+}
+
+.statistics-table th {
+  background-color: #edf4f5;
+  font-weight: bold;
+}
+
+.statistics-table tr:nth-child(even) {
+  background-color: #f5f8ff;
+}
+
+.statistics-table tr:hover {
+  background-color: #e7eff1;
+}
+
+.no-data-message {
+  font-size: 1.2rem;
+  color: #6a808a;
+  margin-top: 20px;
+  color: var(--text-color);
+
+}
+
+@media (max-width: 768px) {
+  .statistics-grid {
+    grid-template-columns: 1fr;
+    /* Single column for smaller screens */
+  }
+
+  .table-container {
+    grid-column: span 1;
+    /* Table spans one column on smaller screens */
+  }
+}
