@@ -1,0 +1,230 @@
+/* ─── Page shell ─────────────────────────────────── */
+.fb-page {
+  min-height: 100vh;
+  background: #f4f8fb;
+  color: #14303a;
+}
+
+.fb-container {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 100px 20px 100px;
+}
+
+/* ─── Back button ────────────────────────────────── */
+.fb-back {
+  background: none;
+  border: none;
+  color: #2f80a3;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.fb-back:hover { color: #1f5f78; }
+
+/* ─── Card ───────────────────────────────────────── */
+.fb-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(20, 48, 58, 0.10);
+  overflow: hidden;
+}
+
+.fb-card-header {
+  background: linear-gradient(135deg, #2f80a3, #1f5f78);
+  color: #ffffff;
+  padding: 28px 28px 22px;
+}
+
+.fb-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.fb-subtitle {
+  font-size: 0.92rem;
+  opacity: 0.88;
+  margin: 0;
+}
+
+/* ─── Form ───────────────────────────────────────── */
+.fb-form {
+  padding: 26px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fb-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fb-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #14303a;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Stars ──────────────────────────────────────── */
+.fb-stars {
+  display: flex;
+  gap: 6px;
+}
+
+.fb-star {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #c7d7dc;
+  cursor: pointer;
+  padding: 2px;
+  transition: color 0.15s, transform 0.15s;
+  line-height: 1;
+}
+
+.fb-star.active {
+  color: #f5c518;
+}
+
+.fb-star:hover,
+.fb-star:focus {
+  transform: scale(1.2);
+  outline: none;
+}
+
+.fb-rating-text {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #2f80a3;
+}
+
+/* ─── Select ─────────────────────────────────────── */
+.fb-select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #c7d7dc;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #14303a;
+  background: #f4f8fb;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.fb-select:focus {
+  outline: none;
+  border-color: #2f80a3;
+}
+
+/* ─── Textarea ───────────────────────────────────── */
+.fb-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #c7d7dc;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #14303a;
+  background: #f4f8fb;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.fb-textarea:focus {
+  outline: none;
+  border-color: #2f80a3;
+}
+
+.fb-char-count {
+  font-size: 0.78rem;
+  color: #6a808a;
+  align-self: flex-end;
+}
+
+/* ─── Error ──────────────────────────────────────── */
+.fb-error {
+  margin: 0;
+  padding: 10px 14px;
+  background: #fde8e8;
+  border-left: 4px solid #e05252;
+  border-radius: 8px;
+  color: #b03030;
+  font-size: 0.88rem;
+}
+
+/* ─── Submit button ──────────────────────────────── */
+.fb-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #2f80a3, #1f5f78);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fb-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(31, 95, 120, 0.35);
+}
+
+/* ─── Thank-you screen ───────────────────────────── */
+.fb-thanks {
+  max-width: 480px;
+  margin: 120px auto 0;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.fb-thanks-icon {
+  font-size: 3.5rem;
+  color: #2f80a3;
+  margin-bottom: 16px;
+}
+
+.fb-thanks h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #14303a;
+  margin: 0 0 10px;
+}
+
+.fb-thanks p {
+  color: #2f5260;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.fb-thanks .fb-btn-primary {
+  width: auto;
+  display: inline-flex;
+  padding: 13px 28px;
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 660px) {
+  .fb-container { padding: 88px 12px 90px; }
+  .fb-card-header { padding: 22px 18px 16px; }
+  .fb-form { padding: 18px 18px 22px; }
+  .fb-title { font-size: 1.25rem; }
+}

@@ -1,0 +1,90 @@
+﻿/* Bottom Navigation Bar Container */
+.bottom-nav-bar {
+  position: fixed;
+  bottom: 0;
+  flex-direction: row;
+  height: 60px;
+  background-color: #2f80a3;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow buttons to wrap to the next line */
+  overflow-x: auto;
+  /* Add horizontal scrolling if needed */
+  scrollbar-width: thin;
+  /* Optional: Thin scrollbar for better aesthetics */
+  scrollbar-color: #c7d7dc transparent;
+  /* Optional: Customize scrollbar color */
+
+}
+
+/* Navigation Button */
+.nav-button {
+  flex: 1;
+  /* Equal space for each button */
+  display: flex;
+  /* Flexbox for layout */
+  flex-direction: column;
+  /* Stack icon and label vertically */
+  align-items: center;
+  /* Center items horizontally */
+  justify-content: center;
+  /* Center items vertically */
+  text-align: center;
+  /* Center text */
+  color: #14303a;
+  /* Darker text color */
+  font-size: 14px;
+  /* Font size for labels */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  padding: 10px;
+  /* Padding for spacing */
+  transition: color 0.3s ease;
+  /* Smooth color transition */
+
+}
+
+.nav-button:hover {
+  color: #1f5f78;
+  /* Darker yellow color on hover */
+
+}
+
+/* Navigation Icon */
+.nav-icon {
+  font-size: 20px;
+  /* Icon size */
+  margin-bottom: 5px;
+  /* Space between icon and label */
+  color: #14303a;
+  /* Darker text color */
+  display: flex;
+  /* Flexbox for layout */
+  justify-content: center;
+  /* Center the icon horizontally */
+  align-items: center;
+  /* Center the icon vertically */
+  width: 100%;
+  /* Full width for the icon */
+  padding: 0;
+  /* Remove padding */
+  background: none;
+  /* Remove background */
+  border: none;
+  /* Remove border */
+}
+
+/* Navigation Label */
+.nav-label {
+  font-size: 12px;
+  /* Smaller font for labels */
+  text-align: center;
+  /* Center the label */
+  font-weight: bold;
+  /* Bold text for emphasis */
+}
+
