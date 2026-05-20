@@ -1,0 +1,118 @@
+/* Navbar container styling */
+.navbar {
+  background: #f3cf57;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Left section of the navbar */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+  min-width: 40px;
+}
+
+/* Center section of the navbar (title) */
+.navbar-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 120px); /* prevent overlapping buttons */
+  pointer-events: none;
+}
+
+/* Right section of the navbar */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  min-width: 40px;
+}
+
+/* Back button styling */
+.back-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for back button */
+.back-button:hover {
+  color: #e7bd32;
+  transform: scale(1.1);
+}
+
+/* Menu button styling */
+.menu-button {
+  color: #333 !important;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px !important;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for menu button */
+.menu-button:hover {
+  color: #e7bd32 !important;
+  transform: scale(1.1);
+}
+
+/* ── Mobile Responsive ─────────────────────────── */
+@media (max-width: 480px) {
+  .navbar {
+    height: 52px;
+    padding: 0 12px;
+  }
+
+  .navbar-title {
+    font-size: 1.1rem;
+    max-width: calc(100% - 100px);
+  }
+
+  .back-button {
+    font-size: 1rem;
+    padding: 6px;
+  }
+
+  .menu-button {
+    font-size: 1.2rem !important;
+    padding: 6px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar-title {
+    font-size: 1rem;
+    max-width: calc(100% - 90px);
+  }
+}

@@ -11,3 +11,6 @@ celerybeat*
 secrets
 redis-data
 node_modules
+.env
+.env.*
+!.env.example
