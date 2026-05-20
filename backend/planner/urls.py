@@ -8,13 +8,14 @@ Function views
     1. Add an import:  from my_app import views
     2. Add a URL to urlpatterns:  path('', views.home, name='home')
 Class-based views
-    1. Add an import:  from other_app.views import Home
+    1. Add an import:  from other_other.views import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.http import JsonResponse
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from users.views import UserViewSet
@@ -28,6 +29,14 @@ api_router = DefaultRouter()
 
 api_router.register('users', UserViewSet, basename='user')
 
+
+def api_home(request):
+    return JsonResponse({
+        'message': 'Student Planner backend is running.',
+        'admin': '/admin/',
+        'api': '/api/v1/',
+    })
+
 """
 http://127.0.0.1:8000/api/v1/users/
 [get, post]
@@ -40,6 +49,7 @@ http://127.0.0.1:8000/api/v1/users/{user_id}/
 http://127.0.0.1:8000/api/v1/tasks/
 """
 urlpatterns = [
+    path('', api_home, name='api_home'),
     path('admin/', admin.site.urls),
     path('api/v1/', include(api_router.urls)),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
