@@ -73,6 +73,13 @@ const toggleMenu = () => {
     fetchUserProfile();
   }, []);
 
+  const isOverdue = (dueDate) => {
+    const due = new Date(dueDate);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return due < today;
+  };
+
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
@@ -184,12 +191,12 @@ useEffect(() => {
               </button>
               {isDropdownOpen && (
                 <div className="dropdown-menu">
-                  <h3>Tasks Due Soon</h3>
+                  <h3>Due or Overdue Tasks</h3>
                   {tasksDueSoon.length > 0 ? (
                     tasksDueSoon.map((task) => (
                       <div key={task.id} className="notification-item">
                         <p>
-                          {task.name} Due: {new Date(task.due_date).toLocaleDateString()}
+                          {task.name} - {isOverdue(task.due_date) ? 'Overdue' : 'Due'}: {new Date(task.due_date).toLocaleDateString()}
                         </p>
                         {/* <button
                           className="mark-as-read-button"
@@ -200,7 +207,7 @@ useEffect(() => {
                       </div>
                     ))
                   ) : (
-                    <p>No tasks due soon</p>
+                    <p>No due or overdue tasks</p>
                   )}
                 </div>
               )}

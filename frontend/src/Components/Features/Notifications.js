@@ -5,6 +5,13 @@ import './notifications.css'; // Import your CSS file for styling
 function Notifications() {
   const [tasksDueSoon, setTasksDueSoon] = useState([]); // State to store due tasks
 
+  const isOverdue = (dueDate) => {
+    const due = new Date(dueDate);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return due < today;
+  };
+
   useEffect(() => {
     const fetchDueTasks = async () => {
       const token = localStorage.getItem('access_token');
@@ -40,19 +47,20 @@ function Notifications() {
     <div className="notifications-page">
       <Navbar title="Notifications" />
     <div>
-      <h1>Notifications</h1>
+      <h1>Due and Overdue Tasks</h1>
       {tasksDueSoon.length > 0 ? (
         <ul className="notifications-list">
           {tasksDueSoon.map((task) => (
             <li key={task.id} className="notification-item">
               <h4> Task name: {task.name}</h4>
+              <p>Status: {isOverdue(task.due_date) ? 'Overdue' : 'Due soon'}</p>
               <p>Due Date: {new Date(task.due_date).toLocaleDateString()}</p>
               <p>Description: {task.description}</p>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No tasks due soon.</p>
+        <p>No due or overdue tasks.</p>
       )}
     </div></div>
   );

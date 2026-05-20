@@ -39,8 +39,13 @@ class TaskViewSet(
 
     @action(detail=False, methods=['get'])
     def tasks_due_tomorrow(self, request):
+        # Include both overdue tasks and tasks due by tomorrow.
         tomorrow = (now() + timedelta(days=1)).date()
-        tasks = Task.objects.filter(user=request.user, due_date=tomorrow, status=False)
+        tasks = Task.objects.filter(
+            user=request.user,
+            due_date__lte=tomorrow,
+            status=False,
+        ).order_by('due_date')
         serializer = self.get_serializer(tasks, many=True)
         return Response(serializer.data, status=200)
 
