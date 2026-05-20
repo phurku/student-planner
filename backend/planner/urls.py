@@ -19,6 +19,7 @@ from django.http import JsonResponse
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from users.views import UserViewSet
+from work.views import TaskViewSet, ScheduleViewSet, TimerView
 from rest_framework_simplejwt.views import ( 
     TokenObtainPairView,
     TokenRefreshView,
@@ -28,6 +29,8 @@ from rest_framework_simplejwt.views import (
 api_router = DefaultRouter()
 
 api_router.register('users', UserViewSet, basename='user')
+api_router.register('tasks', TaskViewSet, basename='task')
+api_router.register('schedules', ScheduleViewSet, basename='schedule')
 
 
 def api_home(request):
@@ -52,6 +55,10 @@ urlpatterns = [
     path('', api_home, name='api_home'),
     path('admin/', admin.site.urls),
     path('api/v1/', include(api_router.urls)),
+    path('api/v1/timer/start/<int:task_id>/', TimerView.as_view(), name='timer_start'),
+    path('api/v1/timer/stop/<int:duration_id>/', TimerView.as_view(), name='timer_stop'),
+    path('api/v1/timer/total-duration/', TimerView.as_view(), name='timer_total_duration'),
+    path('api/v1/tasks-due-tomorrow/', TaskViewSet.as_view({'get': 'tasks_due_tomorrow'}), name='tasks_due_tomorrow'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')

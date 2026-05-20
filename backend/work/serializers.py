@@ -41,6 +41,7 @@ class TaskSerializers(serializers.ModelSerializer):
         task = Task.objects.create(user=self.context['request'].user, **validated_data)
         # Create schedules and associate them with the task and authenticated user
         for schedule_data in schedules_data:
+            schedule_data.pop('id', None)
             Schedule.objects.create(task=task, user=self.context['request'].user, **schedule_data)
         return task
 
@@ -70,6 +71,7 @@ class TaskSerializers(serializers.ModelSerializer):
                 schedule.end_time = schedule_data.get('end_time', schedule.end_time)
                 schedule.save()
             else:
+                schedule_data.pop('id', None)
                 # Create new schedule and associate it with the authenticated user
                 Schedule.objects.create(
                     task=instance,

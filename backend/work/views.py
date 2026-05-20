@@ -10,6 +10,8 @@ from rest_framework.permissions import IsAuthenticated
 from django.utils.timezone import now
 from work.models import Duration, Task
 from work.serializers import DurationSerializer
+from rest_framework.decorators import action
+from datetime import timedelta
 
 class TaskViewSet(
     viewsets.GenericViewSet,
@@ -34,6 +36,13 @@ class TaskViewSet(
     def get_serializer_context(self):
         # Pass the request context to the serializer
         return {'request': self.request}
+
+    @action(detail=False, methods=['get'])
+    def tasks_due_tomorrow(self, request):
+        tomorrow = (now() + timedelta(days=1)).date()
+        tasks = Task.objects.filter(user=request.user, due_date=tomorrow, status=False)
+        serializer = self.get_serializer(tasks, many=True)
+        return Response(serializer.data, status=200)
 
 class ScheduleViewSet(
     viewsets.GenericViewSet,
