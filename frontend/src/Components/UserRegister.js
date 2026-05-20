@@ -23,11 +23,25 @@ function Register() {
                 email,
                 password,
             });
-            setMessage(response.data.message);
-            navigate('/signin'); // Redirect to login page
+            const successMessage = response?.data?.message || 'Registration successful.';
+            setMessage(successMessage);
+
+            // Only redirect immediately when account is already active.
+            if (!successMessage.toLowerCase().includes('verify your email')) {
+                setTimeout(() => navigate('/signin'), 1200);
+            }
         } catch (error) {
             console.error(error.response); // Log the error response
-            setMessage(error.response?.data?.error || 'Registration failed');
+            const errorData = error?.response?.data;
+            if (typeof errorData === 'string') {
+                setMessage(errorData);
+            } else if (errorData?.error) {
+                setMessage(errorData.error);
+            } else if (errorData?.message) {
+                setMessage(errorData.message);
+            } else {
+                setMessage('Registration failed');
+            }
         }
     };
     return (

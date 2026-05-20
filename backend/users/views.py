@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import os
 from celery import Task
 from rest_framework import viewsets, mixins, permissions
 from rest_framework import generics
@@ -74,14 +75,29 @@ class UserViewSet(
         user_serializer.is_valid(raise_exception=True)
 
         user = user_serializer.save()
+        frontend_url = os.getenv('FRONTEND_URL', 'http://localhost:3000').rstrip('/')
+        # If email backend is console (or explicitly disabled), activate immediately.
+        require_email_verification = os.getenv(
+            'REQUIRE_EMAIL_VERIFICATION',
+            'False' if settings.EMAIL_BACKEND == 'django.core.mail.backends.console.EmailBackend' else 'True'
+        ).strip().lower() in ('1', 'true', 'yes', 'on')
+
         try:
             token = uuid4()
-            verify_email_url = f"http://localhost:3000/verify_email/{token}/"
+            verify_email_url = f"{frontend_url}/verify_email/{token}/"
 
             profile = Profile.objects.create(user=user, email_verification_token=token)
             if consent:
                 profile.consent = True
                 profile.save()
+
+            if not require_email_verification:
+                user.is_active = True
+                user.save(update_fields=['is_active'])
+                return Response(
+                    {'message': 'Registration successful. Your account is active.'},
+                    status=201
+                )
 
             message = 'Hello,\nPlease use the link below to Verify your email:\n' + verify_email_url
             data = {'message': message, 'to_email': user.email, 'subject': 'Verify Your Email'}
