@@ -149,6 +149,11 @@ APPEND_SLASH = True
 # e.g. CORS_ALLOWED_ORIGINS=https://your-app.vercel.app,http://localhost:3000
 _cors_origins = os.getenv('CORS_ALLOWED_ORIGINS', 'http://localhost:3000')
 CORS_ALLOWED_ORIGINS = [o.strip() for o in _cors_origins.split(',') if o.strip()]
+if not DEBUG:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r'^https://.*\.vercel\.app$',
+        r'^https://.*\.vercel\.sh$',
+    ]
 
 # Email Configuration
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
