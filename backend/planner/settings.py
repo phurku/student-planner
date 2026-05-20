@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from pathlib import Path
+from corsheaders.defaults import default_headers, default_methods
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-sl(_$@zrehkv*m55&uuj@+-rl-&)v-c6+-$mie-hid4**u*5)%')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+DEBUG = os.getenv('DEBUG', 'True').strip().lower() in ('1', 'true', 'yes', 'on')
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
@@ -145,15 +146,23 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 APPEND_SLASH = True
-# In production set CORS_ALLOWED_ORIGINS env var to your Vercel frontend URL
+# In production set CORS_ALLOWED_ORIGINS env var to your frontend URL(s)
 # e.g. CORS_ALLOWED_ORIGINS=https://your-app.vercel.app,http://localhost:3000
-_cors_origins = os.getenv('CORS_ALLOWED_ORIGINS', 'http://localhost:3000')
+_cors_origins = os.getenv(
+    'CORS_ALLOWED_ORIGINS',
+    'http://localhost:3000,https://student-planner-gilt.vercel.app'
+)
 CORS_ALLOWED_ORIGINS = [o.strip() for o in _cors_origins.split(',') if o.strip()]
-if not DEBUG:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        r'^https://.*\.vercel\.app$',
-        r'^https://.*\.vercel\.sh$',
-    ]
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r'^https://.*\.vercel\.app$',
+    r'^https://.*\.vercel\.sh$',
+]
+CORS_ALLOW_METHODS = list(default_methods)
+CORS_ALLOW_HEADERS = list(default_headers)
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.vercel.app',
+    'https://*.vercel.sh',
+]
 
 # Email Configuration
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
