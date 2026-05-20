@@ -7,12 +7,12 @@ import ProfileImage from '../../assets/profileimage.jpeg';
 import BottomNavBar from '../Layout/BottomNavigationBar';
 
 
-function Settings({ onLogout, isAuthenticated, task }) {
+function Settings({ onLogout, isAuthenticated }) {
   const USER_MANUAL_URL = "https://scribehow.com/viewer/Registering_and_Managing_Tasks_in_Study_Mate_Application__tLHKmH8SQvSm-CoCkXPGrA";
 
   const navigate = useNavigate();
   const [userProfile, setUserProfile] = useState(null);
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light'); // Load theme from localStorage or default to 'light'
+  const [theme] = useState(localStorage.getItem('theme') || 'light'); // Load theme from localStorage or default to 'light'
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -48,10 +48,6 @@ function Settings({ onLogout, isAuthenticated, task }) {
     document.body.className = theme;
     localStorage.setItem('theme', theme); // Save the theme to localStorage
   }, [theme]);
-
-  const handleThemeChange = (e) => {
-    setTheme(e.target.value); // Update the theme state
-  };
 
   const handleLogout = () => {
     if (window.confirm('Are you sure you want to log out?')) {

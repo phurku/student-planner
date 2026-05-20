@@ -1,8 +1,8 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTasks, faCalendarAlt, faClipboardList, faChartBar, faBell, faCheckCircle, faBolt, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faTasks, faCalendarAlt, faClipboardList, faChartBar, faBell, faCheckCircle, faBolt } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import motivationImage from '../../assets/image';
 

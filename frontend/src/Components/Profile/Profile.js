@@ -30,7 +30,7 @@ function Profile() {
       };
   
       fetchUserProfile();
-    }, []);
+    }, [navigate, token]);
   
 
     return (

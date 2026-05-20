@@ -17,15 +17,7 @@ function Planner() {
   const [view, setView] = useState('list'); // Toggle between 'list' and 'calendar'
   const navigate = useNavigate();
   const [durationId, setDurationId] = useState(null); // Store the duration ID for stopping the timer
-  const [dueTasks, setDueTasks] = useState([]); // Store tasks due soon
   const [activeTaskId, setActiveTaskId] = useState(null); // Store the ID of the task being timed
-
-  const [timerValue, setTimerValue] = useState(0); // Track elapsed time in seconds
-  const [timerInterval, setTimerInterval] = useState(null); // Store the interval ID
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Toggle dropdown
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  }
   useEffect(() => {
     if (!isAuthenticated) {
       console.log('User is not authenticated.');
@@ -135,12 +127,6 @@ const isTaskOverDue=(duedate)=>{
         const data = await response.json();
         setDurationId(data.duration_id); // Store the duration ID
         setActiveTaskId(taskId); // Set the active task ID
-        setTimerValue(0); // Reset timer value
-        setTimerInterval(
-          setInterval(() => {
-            setTimerValue((prevValue) => prevValue + 1); // Increment timer value every second
-          }, 1000)
-        );
         console.log('Timer started:', data);
         // alert('Timer started successfully!');
       } else {
@@ -171,8 +157,6 @@ const isTaskOverDue=(duedate)=>{
         const data = await response.json();
         setDurationId(null); // Clear the duration ID
         setActiveTaskId(null); // Clear the active task ID
-        clearInterval(timerInterval); // Stop the timer interval
-        setTimerInterval(null); // Clear the timer interval ID
         console.log('Timer stopped:', data);
         // alert(`Timer stopped. Total duration: ${data.duration.toFixed(2)} seconds`);
       } else {

@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { API_BASE_URL } from './config';
 
 const API = axios.create({
-    baseURL: 'http://127.0.0.1:8000/api/v1', // Base URL for your backend
+    baseURL: API_BASE_URL,
 });
 
 // Add a request interceptor to include the token in headers only for authenticated requests
