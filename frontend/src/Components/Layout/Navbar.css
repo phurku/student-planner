@@ -103,22 +103,20 @@
 
 /* Dropdown Menu Container */
 .dropdown-menu {
-  position: absolute;
-  top: 40px;
-  /* Position below the notification icon */
-  right: 0;
-  /* Align to the right of the notification icon */
+  position: fixed;
+  top: 68px;
+  right: 16px;
   background-color: white;
   border: 1px solid var(--nav-border);
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  /* Set a fixed width for the dropdown */
+  width: min(340px, calc(100vw - 32px));
   z-index: 2000;
-  /* Ensure it appears above other elements */
   padding: 10px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  max-height: calc(100vh - 88px);
 }
 
 /* Dropdown Menu Header */
@@ -139,6 +137,7 @@
   color: var(--nav-text-soft);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  overflow-wrap: anywhere;
 }
 
 .notification-item:last-child {
@@ -161,8 +160,7 @@
 
 /* Scrollable Dropdown (if there are many items) */
 .dropdown-menu {
-  max-height: 300px;
-  /* Limit the height of the dropdown */
+  max-height: calc(100vh - 88px);
   overflow-y: auto;
   /* Add vertical scroll if content exceeds max height */
 }
@@ -273,6 +271,13 @@
   .navbar-right, .navbar-left:hover {
 background-color: transparent;
     
+  }
+
+  .dropdown-menu {
+    top: 60px;
+    right: 12px;
+    left: 12px;
+    width: auto;
   }
 
   .nav-link {

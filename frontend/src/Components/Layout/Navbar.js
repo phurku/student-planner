@@ -1,4 +1,4 @@
-import React, { useState, useEffect ,useRef} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -12,10 +12,8 @@ function Navbar({ title }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Toggle dropdown
   const [tasksDueSoon, setTasksDueSoon] = useState([]); // Store tasks due soon
   const navigate = useNavigate();
-  const dropdownRef = useRef(null); // Ref for the dropdown menu
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
 
 
@@ -84,10 +82,6 @@ const toggleMenu = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
   useEffect(() => {
     const fetchNotifications = async () => {
       const token = localStorage.getItem('access_token');
@@ -147,20 +141,6 @@ const toggleMenu = () => {
   //   }
   // };
 
-// Close dropdown when clicking outside
-useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsDropdownOpen(false);
-    }
-  };
-
-  document.addEventListener('mousedown', handleClickOutside);
-  return () => {
-    document.removeEventListener('mousedown', handleClickOutside);
-  };
-}, []);
-
   return (
     <div className="navbar">
        {/* Hamburger Menu for Mobile */}
@@ -182,35 +162,13 @@ useEffect(() => {
  <div className="navbar-right">
         {isAuthenticated ? (
           <>
-            <div className="notification-container" ref={dropdownRef}>
-              <button className="dropdown-button" onClick={toggleDropdown}>
+            <div className="notification-container">
+              <button className="dropdown-button" onClick={() => navigate('/notifications')} aria-label="Open notifications">
                 <NotificationsIcon />
                 {tasksDueSoon.length > 0 && (
                   <span className="notification-badge">{tasksDueSoon.length}</span>
                 )}
               </button>
-              {isDropdownOpen && (
-                <div className="dropdown-menu">
-                  <h3>Due or Overdue Tasks</h3>
-                  {tasksDueSoon.length > 0 ? (
-                    tasksDueSoon.map((task) => (
-                      <div key={task.id} className="notification-item">
-                        <p>
-                          {task.name} - {isOverdue(task.due_date) ? 'Overdue' : 'Due'}: {new Date(task.due_date).toLocaleDateString()}
-                        </p>
-                        {/* <button
-                          className="mark-as-read-button"
-                          onClick={() => markAsRead(task.id)}
-                        >
-                          Mark as Read
-                        </button> */}
-                      </div>
-                    ))
-                  ) : (
-                    <p>No due or overdue tasks</p>
-                  )}
-                </div>
-              )}
             </div>
             <button className="icon-button" onClick={() => navigate('/settings')}>
               <SettingsIcon />

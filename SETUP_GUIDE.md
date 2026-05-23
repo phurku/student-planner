@@ -26,7 +26,7 @@ Your project had several issues that have been resolved:
 cd backend
 
 # Start Django development server
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000
 ```
 
 ✅ Backend will run at: `http://localhost:8000`
@@ -43,6 +43,14 @@ cd frontend
 npm install
 
 # Start React development server
+npm start
+```
+
+If you want to open the app from a phone on the same Wi-Fi network, bind the frontend to all interfaces before starting it:
+
+```bash
+# Windows PowerShell
+$env:HOST="0.0.0.0"
 npm start
 ```
 

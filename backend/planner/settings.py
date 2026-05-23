@@ -27,7 +27,8 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-sl(_$@zrehkv*m55&uu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True').strip().lower() in ('1', 'true', 'yes', 'on')
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
+_allowed_hosts = os.getenv('DJANGO_ALLOWED_HOSTS') or os.getenv('ALLOWED_HOSTS', '*')
+ALLOWED_HOSTS = [host.strip() for host in _allowed_hosts.split(',') if host.strip()]
 
 
 # Application definition
@@ -149,13 +150,21 @@ APPEND_SLASH = True
 # In production set CORS_ALLOWED_ORIGINS env var to your frontend URL(s)
 # e.g. CORS_ALLOWED_ORIGINS=https://your-app.vercel.app,http://localhost:3000
 _cors_origins = os.getenv(
-    'CORS_ALLOWED_ORIGINS',
+    'DJANGO_CORS_ALLOWED_ORIGINS',
+    os.getenv(
+        'CORS_ALLOWED_ORIGINS',
     'http://localhost:3000,https://student-planner-gilt.vercel.app'
+    )
 )
 CORS_ALLOWED_ORIGINS = [o.strip() for o in _cors_origins.split(',') if o.strip()]
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r'^https://.*\.vercel\.app$',
     r'^https://.*\.vercel\.sh$',
+    r'^http://127\.0\.0\.1(:\d+)?$',
+    r'^http://localhost(:\d+)?$',
+    r'^http://10(?:\.\d{1,3}){3}(:\d+)?$',
+    r'^http://192\.168(?:\.\d{1,3}){2}(:\d+)?$',
+    r'^http://172\.(1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2}(:\d+)?$',
 ]
 CORS_ALLOW_METHODS = list(default_methods)
 CORS_ALLOW_HEADERS = list(default_headers)

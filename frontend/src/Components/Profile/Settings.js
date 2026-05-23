@@ -12,6 +12,7 @@ function Settings({ onLogout, isAuthenticated }) {
 
   const navigate = useNavigate();
   const [userProfile, setUserProfile] = useState(null);
+  const [tasksDueSoon, setTasksDueSoon] = useState([]);
   const [theme] = useState(localStorage.getItem('theme') || 'light'); // Load theme from localStorage or default to 'light'
 
   useEffect(() => {
@@ -42,6 +43,36 @@ function Settings({ onLogout, isAuthenticated }) {
 
     fetchUserProfile();
   }, [navigate]);
+
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      const token = localStorage.getItem('access_token');
+      if (!token) {
+        setTasksDueSoon([]);
+        return;
+      }
+
+      try {
+        const response = await fetch(buildApiUrl('tasks-due-tomorrow/'), {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setTasksDueSoon(data);
+        } else {
+          console.error('Failed to fetch tasks due soon:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching tasks due soon:', error);
+      }
+    };
+
+    fetchNotifications();
+  }, []);
 
   useEffect(() => {
     // Apply the selected theme to the body element
@@ -86,7 +117,9 @@ function Settings({ onLogout, isAuthenticated }) {
 
         <ul className="settings-options">
           <li onClick={() => navigate('/user-profile')}>Profile</li>
-          <li onClick={() => navigate('/notifications')}>Notifications</li>
+          <li onClick={() => navigate('/notifications')} className="settings-notification-row">
+            <span>Notifications {tasksDueSoon.length > 0 && `(${tasksDueSoon.length})`}</span>
+          </li>
           <li onClick={() => navigate('/forgot-password')}>Change Password</li>          
 
           <li onClick={() => navigate('/feedback')}>Feedback</li>

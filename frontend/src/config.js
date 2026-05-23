@@ -1,14 +1,31 @@
 const DEFAULT_API_BASE_URL = 'https://student-planner-backend-zbr2.onrender.com/api/v1';
 
 const envApiBaseUrl = (process.env.REACT_APP_API_BASE_URL || '').trim();
-const isLocalApi = /127\.0\.0\.1|localhost/i.test(envApiBaseUrl);
 const isBrowser = typeof window !== 'undefined';
-const isLocalFrontend = isBrowser && /localhost|127\.0\.0\.1/i.test(window.location.hostname);
+const browserHostname = isBrowser ? window.location.hostname : '';
+const isLoopbackHost = (value = '') => /127\.0\.0\.1|localhost/i.test(value);
 
-// Safety guard: never use localhost API when the frontend is deployed.
-const resolvedApiBaseUrl = (!isLocalFrontend && isLocalApi)
-  ? DEFAULT_API_BASE_URL
-  : (envApiBaseUrl || DEFAULT_API_BASE_URL);
+const resolveLocalApiBaseUrl = () => {
+  if (!envApiBaseUrl || !isBrowser || !isLoopbackHost(envApiBaseUrl)) {
+    return envApiBaseUrl;
+  }
+
+  // When the frontend is opened from another device on the same network,
+  // reuse that hostname so requests target the developer machine instead of the phone itself.
+  if (!isLoopbackHost(browserHostname)) {
+    try {
+      const lanApiUrl = new URL(envApiBaseUrl);
+      lanApiUrl.hostname = browserHostname;
+      return lanApiUrl.toString();
+    } catch (error) {
+      return envApiBaseUrl;
+    }
+  }
+
+  return envApiBaseUrl;
+};
+
+const resolvedApiBaseUrl = resolveLocalApiBaseUrl() || DEFAULT_API_BASE_URL;
 
 export const API_BASE_URL = resolvedApiBaseUrl.replace(/\/+$/, '');
 
