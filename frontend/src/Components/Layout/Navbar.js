@@ -71,13 +71,6 @@ const toggleMenu = () => {
     fetchUserProfile();
   }, []);
 
-  const isOverdue = (dueDate) => {
-    const due = new Date(dueDate);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return due < today;
-  };
-
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
